@@ -11,7 +11,7 @@ from django.contrib import auth
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the craigapp index.")
+    return render(request, 'index.html')
 
 
 def profile_view(request):
