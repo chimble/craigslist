@@ -107,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
-LOGIN_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = '/craigapp/accounts/profile'
 
 LANGUAGE_CODE = 'en-us'
 
