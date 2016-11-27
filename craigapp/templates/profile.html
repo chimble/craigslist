@@ -6,7 +6,15 @@
 <body>
     <h1> User's Details</h1>
     <h2> ID: {{ user.id }}</h2>
+    <ul>
+        {% for ad in ads %}
 
+        {% if ad.user_id == user.id %}
+            <li>${{ad.price}} {{ad.item}}</li>
+        {% endif %}
+
+        {% endfor %}
+    </ul>
 
 </body>
 {%endblock%}

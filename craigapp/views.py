@@ -17,7 +17,8 @@ def index(request):
 
 
 def profile_view(request):
-    return render(request, 'profile.html')
+    ads = models.Ad.objects.all()
+    return render(request, 'profile.html', {'ads': ads})
 
 
 def car_view(request):
