@@ -5,17 +5,22 @@
     <title>Car Listings</title>
 </head>
 <body>
-    <h1>All ads</h1>
-    <ul>
-        {% for ad in ads %}
-        <li>
-            <h2>{{ad.item}}</h2>
-            <h2>{{ad.price}}</h2>
-
-        </li>
-        {% endfor %}
-    </ul>
-
+    <table>
+    <thead>
+      <tr>
+        <th>$</th>
+        <th>Cars</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for ad in ads %}
+      <tr>
+        <td>{{ad.price}}</td>
+        <td>{{ad.item}}</td>
+      </tr>
+     {% endfor %}
+    </tbody>
+    </table>
 </body>
 {%endblock%}
 </html>

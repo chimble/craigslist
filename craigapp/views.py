@@ -12,7 +12,8 @@ from craigapp.models import Craig, Ad
 
 
 def index(request):
-    return render(request, 'index.html')
+    ads = models.Ad.objects.all()
+    return render(request, 'index.html', {'ads': ads})
 
 
 def profile_view(request):
@@ -36,9 +37,11 @@ def create_ad(request):
         form = AdForm()
         return render(request, 'create_ad.html', {'form': form})
 
+
 def ad_listing(request):
     ads = models.Ad.objects.all()
     return render(request, 'ad_listing.html', {'ads': ads})
+
 
 def create_user(request):
     if request.method == "POST":
