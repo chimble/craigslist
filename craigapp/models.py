@@ -4,7 +4,7 @@ from django.contrib.auth.models import BaseUserManager
 
 
 class Craig(models.Model):
-    Craig_city = models.CharField(max_length=200)
+    city = models.CharField(max_length=200)
     user = models.OneToOneField(User, null=True)
 
     class Meta:

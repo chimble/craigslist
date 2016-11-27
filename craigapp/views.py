@@ -18,6 +18,10 @@ def profile_view(request):
     return render(request, 'profile.html')
 
 
+def car_view(request):
+    return render(request, 'cars.html')
+
+
 def create_user(request):
     if request.method == "POST":
         form = UserForm(request.POST)
