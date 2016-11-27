@@ -9,4 +9,9 @@ class Craig(models.Model):
 
     class Meta:
         ordering = ['id']
-# Create your models here.
+
+
+class Ad(models.Model):
+    user = models.ForeignKey(User)
+    price = models.FloatField(default=0)
+    item = models.CharField(max_length=200)

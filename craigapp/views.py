@@ -8,6 +8,7 @@ from craigapp import models
 from django.middleware import csrf
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import auth
+from craigapp.models import Craig, Ad
 
 
 def index(request):
@@ -21,6 +22,23 @@ def profile_view(request):
 def car_view(request):
     return render(request, 'cars.html')
 
+
+def create_ad(request):
+    if request.method == "POST":
+        form = AdForm(request.POST)
+        if form.is_valid():
+            ad = form.save(commit=False)
+            ad.user_id = request.user.id
+            ad.save()
+            #login(request, ad)
+            return HttpResponseRedirect('/craigapp/accounts/profile')
+    else:
+        form = AdForm()
+        return render(request, 'create_ad.html', {'form': form})
+
+def ad_listing(request):
+    ads = models.Ad.objects.all()
+    return render(request, 'ad_listing.html', {'ads': ads})
 
 def create_user(request):
     if request.method == "POST":
